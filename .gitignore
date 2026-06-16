@@ -1,0 +1,60 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# .gitignore — covers both frontend/ and backend/
+# ─────────────────────────────────────────────────────────────────────────────
+
+# ── Environment variables (NEVER commit these) ────────────────────────────────
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+frontend/.env.local
+backend/.env
+
+# ── Node.js ───────────────────────────────────────────────────────────────────
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnp
+.pnp.js
+
+# ── Next.js ───────────────────────────────────────────────────────────────────
+frontend/.next/
+frontend/out/
+frontend/.vercel/
+
+# ── TypeScript build output ───────────────────────────────────────────────────
+backend/dist/
+*.tsbuildinfo
+
+# ── Subscriber data (contains emails — keep private) ─────────────────────────
+backend/data/subscribers.json
+
+# ── Editor files ──────────────────────────────────────────────────────────────
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+*~
+
+# ── OS generated files ────────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ── Logs ──────────────────────────────────────────────────────────────────────
+logs/
+*.log
+
+# ── Test coverage ─────────────────────────────────────────────────────────────
+coverage/
+.nyc_output/
+
+# ── Misc ──────────────────────────────────────────────────────────────────────
+*.tgz
+*.zip

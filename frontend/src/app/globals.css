@@ -1,0 +1,221 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   GLOBAL STYLES
+   - Tailwind directives
+   - CSS custom properties (design tokens)
+   - Base resets and typography
+   - Utility overrides and custom components
+   ───────────────────────────────────────────────────────────────────────────── */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── CSS Custom Properties (Design Tokens) ────────────────────────────────── */
+:root {
+  /* Backgrounds */
+  --bg-deep: #060912;
+  --bg-surface: #0c1120;
+  --bg-card: rgba(255, 255, 255, 0.04);
+  --bg-hover: rgba(255, 255, 255, 0.07);
+
+  /* Accents */
+  --accent-cyan: #22d3ee;
+  --accent-cyan-dark: #0891b2;
+  --accent-gold: #fbbf24;
+  --accent-gold-dark: #d97706;
+  --accent-green: #34d399;
+  --accent-green-dark: #059669;
+  --accent-purple: #a78bfa;
+
+  /* Text */
+  --text-bright: #f8fafc;
+  --text-primary: #e2e8f0;
+  --text-secondary: #94a3b8;
+  --text-muted: #475569;
+
+  /* Borders */
+  --border: rgba(255, 255, 255, 0.07);
+  --border-bright: rgba(255, 255, 255, 0.15);
+
+  /* Shadows */
+  --shadow-glow: 0 0 20px rgba(34, 211, 238, 0.3);
+  --shadow-glow-gold: 0 0 20px rgba(251, 191, 36, 0.3);
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* ── Base ─────────────────────────────────────────────────────────────────── */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--bg-deep);
+    color: var(--text-primary);
+    font-family: var(--font-jakarta, system-ui, sans-serif);
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Focus ring — accessible and branded */
+  *:focus-visible {
+    outline: 2px solid rgba(34, 211, 238, 0.6);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* Text selection */
+  ::selection {
+    background-color: rgba(34, 211, 238, 0.2);
+    color: #22d3ee;
+  }
+
+  /* Headings inherit the Syne variable */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-syne, system-ui, sans-serif);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+
+  /* Code text */
+  code, pre, kbd, samp {
+    font-family: var(--font-mono, "Courier New", monospace);
+  }
+
+  /* Images */
+  img, video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Buttons baseline */
+  button {
+    cursor: pointer;
+    font-family: inherit;
+  }
+
+  /* Links baseline */
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+/* ── Custom Scrollbar ─────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-deep);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(34, 211, 238, 0.25);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(34, 211, 238, 0.45);
+}
+
+/* ── Components ───────────────────────────────────────────────────────────── */
+@layer components {
+
+  /* Glass card */
+  .card-glass {
+    @apply bg-bg-card border border-border backdrop-blur-sm rounded-2xl;
+  }
+
+  /* Gradient text */
+  .text-gradient-cyan {
+    @apply bg-gradient-to-r from-accent-cyan to-accent-green bg-clip-text text-transparent;
+  }
+  .text-gradient-gold {
+    @apply bg-gradient-to-r from-accent-gold to-amber-300 bg-clip-text text-transparent;
+  }
+
+  /* Section wrapper */
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Glow button */
+  .btn-primary {
+    @apply px-6 py-3 rounded-xl bg-accent-cyan text-bg-deep font-syne font-bold
+           hover:bg-accent-cyan/90 transition-all duration-200 active:scale-95;
+  }
+
+  .btn-outline {
+    @apply px-6 py-3 rounded-xl border border-border text-text-secondary font-medium
+           hover:border-accent-cyan/50 hover:text-accent-cyan transition-all duration-200 active:scale-95;
+  }
+
+  /* Tag / pill */
+  .tag {
+    @apply px-2.5 py-0.5 text-xs font-mono bg-bg-surface text-text-muted border border-border rounded-md;
+  }
+}
+
+/* ── Utilities ────────────────────────────────────────────────────────────── */
+@layer utilities {
+
+  /* Line clamp helpers */
+  .line-clamp-1 { overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1; }
+  .line-clamp-2 { overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+  .line-clamp-3 { overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; }
+
+  /* No-scrollbar */
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+  /* Perspective (for 3D hover effects) */
+  .perspective-1000 { perspective: 1000px; }
+  .perspective-500  { perspective: 500px; }
+
+  /* Backdrop blur fallback */
+  @supports not (backdrop-filter: blur(1px)) {
+    .backdrop-blur-sm  { background-color: rgba(12, 17, 32, 0.95) !important; }
+    .backdrop-blur-md  { background-color: rgba(6, 9, 18, 0.95) !important; }
+  }
+
+  /* Ultra-smooth Apple-like transitions (The "Edge" of smoothness) */
+  .transition-all, .transition-transform, .transition-colors, .transition-opacity {
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1) !important;
+  }
+
+  /* Force GPU Hardware Acceleration for buttery animations */
+  .transition-all, .transition-transform, .hover\:scale-105:hover, .hover\:translate-x-1:hover, .group-hover\:scale-105 {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    will-change: transform, opacity;
+  }
+}
+
+/* ── Framer Motion overrides ──────────────────────────────────────────────── */
+
+/* Prevent layout shift during initial load */
+[data-framer-appear-id] {
+  opacity: 1 !important;
+}
+
+/* ── Print styles ─────────────────────────────────────────────────────────── */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  header, footer, nav, .no-print {
+    display: none !important;
+  }
+}
