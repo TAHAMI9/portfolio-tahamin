@@ -260,6 +260,4 @@ Add these in GitHub → Settings → Secrets → Actions:
 | Hosting | Vercel (frontend) + Railway/Render (backend) |
 | CI/CD | GitHub Actions |
 
----
-
-Built with ❤️ for Md Tahamin Islam's portfolio | Dhaka, Bangladesh 🇧🇩
+Md Tahamin Islam's portfolio
