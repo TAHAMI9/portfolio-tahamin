@@ -122,10 +122,10 @@ export default function AboutPage() {
                   Welcome to the official portfolio of <strong className="text-text-primary">MD TAHAMIN ISLAM (Mahin)</strong> — a passionate learner, aspiring machine learning engineer, and tech enthusiast from Bangladesh.
                 </p>
                 <p>
-                  My journey into technology started with a deep curiosity about how machines can learn from data. I've since built classifiers, worked on NLP projects, and competed on Kaggle — all while still in secondary school.
+                  My journey into technology started with a deep curiosity about how machines can learn from data. I&apos;ve since built classifiers, worked on NLP projects, and competed on Kaggle — all while still in secondary school.
                 </p>
                 <p>
-                  I'm also a musician — my debut album <strong className="text-accent-green">'Xcape,By Mahin'</strong> is available on Spotify. I compose music as a creative outlet alongside my technical pursuits, and I create motivational content.
+                  I&apos;m also a musician — my debut album <strong className="text-accent-green">&apos;Xcape,By Mahin&apos;</strong> is available on Spotify. I compose music as a creative outlet alongside my technical pursuits, and I create motivational content.
                 </p>
                 <p>
                   My ultimate goal is to study at Cambridge or Oxford, contribute to AI research that genuinely helps people, and build technology that makes a difference in South Asia and beyond.

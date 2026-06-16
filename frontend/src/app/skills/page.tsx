@@ -93,7 +93,7 @@ export default function SkillsPage() {
               </h1>
               <p className="text-text-secondary text-lg max-w-xl mb-8 leading-relaxed">
                 A snapshot of my technical skills, tools I use daily,
-                and the competencies I've built across ML and web development.
+                and the competencies I&apos;ve built across ML and web development.
               </p>
 
               {/* Download CV — prominently here */}
