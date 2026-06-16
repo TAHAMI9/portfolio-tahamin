@@ -1,3 +1,10 @@
 {
+<<<<<<< HEAD
   "extends": ["next/core-web-vitals"]
 }
+=======
+  "extends": [
+    "next/core-web-vitals"
+  ]
+}
+>>>>>>> d03af2d (Fix lint command)
