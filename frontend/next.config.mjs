@@ -50,7 +50,7 @@ const nextConfig = {
 
   // Optimize bundle
   experimental: {
-    optimizeCss: true,
+    optimizeCss: false,
   },
 };
 
