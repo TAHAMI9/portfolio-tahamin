@@ -1,31 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
 
-/* ── Google Fonts ─────────────────────────────────────────────────────────── */
-
-// Poppins — clean geometric headings (matches modern portfolio Canva style)
-const poppins = Poppins({
-  subsets: ["latin"],
-  variable: "--font-heading",
-  display: "swap",
-  weight: ["400", "500", "600", "700", "800", "900"],
-});
-
-// Inter — ultra-readable body text
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-body",
-  display: "swap",
-});
-
-// JetBrains Mono — code / labels
-const mono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-  display: "swap",
-  weight: ["300", "400", "500", "600", "700"],
-});
 
 /* ── Metadata ─────────────────────────────────────────────────────────────── */
 export const metadata: Metadata = {
@@ -71,11 +46,17 @@ export const viewport: Viewport = {
 };
 
 /* ── Root Layout ──────────────────────────────────────────────────────────── */
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html
       lang="en"
-      className={`dark ${poppins.variable} ${inter.variable} ${mono.variable}`}
+      className="dark"
     >
       <body className="bg-bg-deep text-text-primary font-body antialiased">
         {/* Skip to main for accessibility */}
@@ -87,6 +68,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           Skip to main content
         </a>
+
         <div id="main-content">{children}</div>
 
         {/* Schema.org structured data */}
@@ -94,16 +76,23 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
-              "@context":  "https://schema.org",
-              "@type":     "Person",
-              name:        "MD Tahamin Islam",
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "MD Tahamin Islam",
               alternateName: "Mahin",
-              url:         "https://tahaminislam.com",
-              jobTitle:    "Student & Aspiring ML Engineer",
-              description: "Bangladeshi student exploring machine learning and web development.",
+              url: "https://tahaminislam.com",
+              jobTitle: "Student & Aspiring ML Engineer",
+              description:
+                "Bangladeshi student exploring machine learning and web development.",
               nationality: "Bangladeshi",
-              address: { "@type": "PostalAddress", addressCountry: "BD" },
-              alumniOf: { "@type": "EducationalOrganization", name: "Sunup International School and College" },
+              address: {
+                "@type": "PostalAddress",
+                addressCountry: "BD",
+              },
+              alumniOf: {
+                "@type": "EducationalOrganization",
+                name: "Sunup International School and College",
+              },
               sameAs: [
                 "https://github.com/TAHAMI9",
                 "https://www.linkedin.com/in/md-tahamin-islam-mahin/",
